@@ -44,13 +44,13 @@ def user_input_features():
     "Yucatán",
     "Zacatecas"
   ]
-    
+
   meses =["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
   entidad_name = st.selectbox("Selecciona un estado", estados)
-  mes_name = st.selectbox("Selecciona un mes", meses)
+  mes_name = st.radio("Selecciona un mes", meses)
 
-  # Mapear el nombre de los estados a valores numericos 
+  # Mapear el nombre de los estados a valores numericos
   estado_mapping = {state: i for i, state in enumerate(estados)}
   entidad_num = estado_mapping[entidad_name]
   mes_mapping = {mes: i for i, mes in enumerate(meses)}
