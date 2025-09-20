@@ -9,7 +9,7 @@ st.header('Datos de evaluación')
 
 def user_input_features():
   # Entrada
-  año = st.number_input('año (2017 - 2025 ):',  min_value=2017, max_value=2030, value = 2017, step = 1)
+  año = st.number_input('año (2017 - 2035 ):',  min_value=2017, max_value=2035, value = 2017, step = 1)
   estados = [
     "Aguascalientes",
     "Baja California",
@@ -44,12 +44,16 @@ def user_input_features():
     "Yucatán",
     "Zacatecas"
 ]
+meses =["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
   entidad_name = st.selectbox("Selecciona un estado", estados)
-  mes_num = st.number_input('Mes (1 - 12 donde enero =1 ... diciembre=12):', min_value=1, max_value=12, value = 1, step = 1)
+  mes_name = st.selectbox("Selecciona un mes", meses)
 
   # Mapear el nombre de los estados a valores numericos 
   estado_mapping = {state: i for i, state in enumerate(estados)}
   entidad_num = estado_mapping[entidad_name]
+  mes_mapping = {mes: i for i, mes in enumerate(meses)}
+  mes_num = mes_mapping[mes_name]
 
   user_input_data = {'año': año,
                      'mes_num': mes_num,
@@ -60,7 +64,7 @@ def user_input_features():
   return features
 
 df = user_input_features()
-#año|mes_num|precio|entidad_num|
+
 precios =  pd.read_csv('PreciosGas.csv', encoding='latin-1')
 X = precios.drop(columns='precio')
 y = precios['precio']
