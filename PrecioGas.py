@@ -43,8 +43,9 @@ def user_input_features():
     "Veracruz de Ignacio de la Llave",
     "Yucatán",
     "Zacatecas"
-]
-meses =["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+  ]
+    
+  meses =["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
   entidad_name = st.selectbox("Selecciona un estado", estados)
   mes_name = st.selectbox("Selecciona un mes", meses)
